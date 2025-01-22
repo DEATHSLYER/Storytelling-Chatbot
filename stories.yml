@@ -1,0 +1,45 @@
+version: "3.1"
+
+
+stories:
+- story: Generate a new story
+  steps:
+  - intent: generate_story
+  - action: action_generate_story
+- story: Refine the story
+  steps:
+  - intent: refine_story
+  - action: action_refine_story
+- story: End the story
+  steps:
+  - intent: stop_story
+  - action: action_stop_story
+
+
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
